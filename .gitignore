@@ -81,4 +81,5 @@ coverage/
 test-install/my-sonicjs-app/node_modules/
 test-install/my-sonicjs-app/.wrangler/
 test-install/my-sonicjs-app/.dev.vars
-test-install/my-sonicjs-app/package-lock.json
+test-install/my-sonicjs-app/package-lock.json# AI documentation folder (session notes, temporary analysis)
+.ai-docs/
