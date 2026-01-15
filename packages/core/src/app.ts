@@ -4,34 +4,34 @@
  * Creates a configured SonicJS application with all core functionality
  */
 
-import { Hono } from 'hono'
-import type { Context } from 'hono'
 import type { D1Database, KVNamespace, R2Bucket } from '@cloudflare/workers-types'
-import {
-  apiRoutes,
-  apiMediaRoutes,
-  apiSystemRoutes,
-  adminApiRoutes,
-  authRoutes,
-  testCleanupRoutes,
-  adminContentRoutes,
-  adminUsersRoutes,
-  adminMediaRoutes,
-  adminPluginRoutes,
-  adminLogsRoutes,
-  adminDashboardRoutes,
-  adminCollectionsRoutes,
-  adminSettingsRoutes
-} from './routes'
-import { getCoreVersion } from './utils/version'
+import type { Context } from 'hono'
+import { Hono } from 'hono'
+import { adminSetupMiddleware } from './middleware/admin-setup'
 import { bootstrapMiddleware } from './middleware/bootstrap'
 import { metricsMiddleware } from './middleware/metrics'
-import { adminSetupMiddleware } from './middleware/admin-setup'
+import { createMagicLinkAuthPlugin } from './plugins/available/magic-link-auth'
 import { createDatabaseToolsAdminRoutes } from './plugins/core-plugins/database-tools-plugin/admin-routes'
-import { createSeedDataAdminRoutes } from './plugins/core-plugins/seed-data-plugin/admin-routes'
 import { emailPlugin } from './plugins/core-plugins/email-plugin'
 import { otpLoginPlugin } from './plugins/core-plugins/otp-login-plugin'
-import { createMagicLinkAuthPlugin } from './plugins/available/magic-link-auth'
+import { createSeedDataAdminRoutes } from './plugins/core-plugins/seed-data-plugin/admin-routes'
+import {
+  adminApiRoutes,
+  adminCollectionsRoutes,
+  adminContentRoutes,
+  adminDashboardRoutes,
+  adminLogsRoutes,
+  adminMediaRoutes,
+  adminPluginRoutes,
+  adminSettingsRoutes,
+  adminUsersRoutes,
+  apiMediaRoutes,
+  apiRoutes,
+  apiSystemRoutes,
+  authRoutes,
+  testCleanupRoutes
+} from './routes'
+import { getCoreVersion } from './utils/version'
 
 // ============================================================================
 // Type Definitions

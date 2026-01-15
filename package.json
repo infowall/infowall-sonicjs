@@ -16,6 +16,7 @@
     "build:www": "npm run build --workspace=www",
     "build:core": "npm run build --workspace=@sonicjs-cms/core",
     "deploy": "npm run deploy --workspace=my-sonicjs-app",
+    "deploy:staging": "npm run build:core && cd my-sonicjs-app && npx wrangler deploy --env staging",
     "deploy:www": "npm run deploy --workspace=www",
     "test": "npm run test --workspace=@sonicjs-cms/core",
     "test:cov": "npm run test:cov --workspace=@sonicjs-cms/core",
@@ -44,6 +45,9 @@
     "social:twitter": "node scripts/social/post-twitter.js",
     "social:post": "node scripts/social/post-both.js",
     "db:reset": "npm run setup:db --workspace=my-sonicjs-app",
+    "db:backup": "cd my-sonicjs-app && npx wrangler d1 export infowall-development-db --output=../backups/db-backup-$(date +%Y%m%d-%H%M%S).sql",
+    "db:migrate:staging": "cd my-sonicjs-app && npx wrangler d1 migrations apply infowall-staging-db --env staging --remote",
+    "logs:staging": "cd my-sonicjs-app && npx wrangler tail --env staging",
     "workspace": "npm install && npm run db:reset",
     "kill": "pkill workerd && npm run dev --workspace=my-sonicjs-app"
   },

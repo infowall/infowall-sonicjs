@@ -14,8 +14,12 @@ const userRoutes = new Hono<{ Bindings: Bindings; Variables: Variables }>()
 // Apply authentication middleware to all routes
 userRoutes.use('*', requireAuth())
 
-// Redirect /admin to /admin/dashboard
+// Redirect /admin to /admin/dashboard (handle both with and without trailing slash)
 userRoutes.get('/', (c) => {
+  return c.redirect('/admin/dashboard')
+})
+
+userRoutes.get('', (c) => {
   return c.redirect('/admin/dashboard')
 })
 
