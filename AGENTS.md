@@ -41,18 +41,15 @@ These instructions mirror the workflow Claude Code already follows in Conductor 
 
 ## Commit, PR, and CI Workflow
 - Branches are created by Conductor; keep names descriptive (`fix-auth-timeout`, `feat-media-upload`).
-- Follow the Claude Code commit template:
-  ```
-  <type>: <short description>
+- Follow this commit template:
+ ```
+ <type>: <short description>
 
-  - Bullet summary of key changes
+ - Bullet summary of key changes
 
-  Fixes #<issue-number>
-
-  Generated with Claude Code
-  Co-Authored-By: Claude <noreply@anthropic.com>
-  ```
-  Types: `fix`, `feat`, `refactor`, `test`, `docs`, `chore`.
+ Fixes #<issue-number>
+ ```
+ Types: `fix`, `feat`, `refactor`, `test`, `docs`, `chore`.
 - Before creating a PR run: `npm run type-check && npm test && npm run e2e`. CI repeats these plus deploys a Workers preview with a fresh D1 instance.
 - PR body should mirror `.github/pull_request_template.md`: include summary, linked issue, detailed change bullets, and explicit test commands + outcomes (unit + E2E).
 - Keep docs in sync (`docs/`, `www/src/app/*.mdx`, READMEs). Mention any migrations or plugin contract changes.
