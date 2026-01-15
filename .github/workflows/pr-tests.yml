@@ -9,12 +9,13 @@ on:
       - main
 
 jobs:
-  # Authorization job - gates fork PRs behind environment approval
+  # Authorization job - gates all PRs behind environment approval (manual review required)
   authorize:
     runs-on: ubuntu-latest
-    # Use 'external' environment (requires approval) for fork PRs, 'internal' for same-repo PRs
+    # Use 'external' environment (requires approval) for ALL pull_request_target events
+    # This ensures CI only runs after manual review, matching lane711's setup
     environment:
-      name: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.head.repo.full_name != github.repository && 'external' || 'internal' }}
+      name: ${{ github.event_name == 'pull_request_target' && 'external' || 'internal' }}
     steps:
       - name: Authorize
         run: |
