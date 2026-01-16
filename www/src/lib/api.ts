@@ -1,7 +1,7 @@
 // API Client for SonicJS Backend
 // Fetches content from the CMS
 
-const API_URL = import.meta.env.PUBLIC_API_URL || 'http://localhost:8787'
+const API_URL = import.meta.env.PUBLIC_API_URL || 'http://localhost:8788'
 
 export interface Article {
   id: string
@@ -45,14 +45,14 @@ export interface Project {
  */
 export async function getArticles(): Promise<Article[]> {
   try {
-    const response = await fetch(`${API_URL}/api/collections/blog-posts/content`)
+    const response = await fetch(`${API_URL}/api/collections/blog_posts/content`)
     if (!response.ok) {
       throw new Error(`Failed to fetch articles: ${response.statusText}`)
     }
     const data = await response.json()
     
     // Filter to published only and sort by date
-    return (data.items || [])
+    return (data.data || [])
       .filter((article: Article) => article.data?.status === 'published')
       .sort((a: Article, b: Article) => {
         const dateA = new Date(a.data?.published_at || a.created_at).getTime()
@@ -85,12 +85,17 @@ export async function getProjects(): Promise<Project[]> {
   try {
     const response = await fetch(`${API_URL}/api/collections/projects/content`)
     if (!response.ok) {
+      // If projects collection doesn't exist yet, return empty array gracefully
+      if (response.status === 404) {
+        console.warn('Projects collection not found - create it in the admin')
+        return []
+      }
       throw new Error(`Failed to fetch projects: ${response.statusText}`)
     }
     const data = await response.json()
     
     // Filter to published only and sort by date
-    return (data.items || [])
+    return (data.data || [])
       .filter((project: Project) => project.data?.status === 'published')
       .sort((a: Project, b: Project) => {
         const dateA = new Date(a.data?.published_at || a.created_at).getTime()
