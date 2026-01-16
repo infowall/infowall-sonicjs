@@ -1,8 +1,8 @@
 'use strict';
 
-var chunkCZOX6237_cjs = require('./chunk-CZOX6237.cjs');
+var chunkKBBTC4I5_cjs = require('./chunk-KBBTC4I5.cjs');
 require('./chunk-ILZ3DP4I.cjs');
-require('./chunk-JEN5TGDJ.cjs');
+require('./chunk-QQKCBDYE.cjs');
 require('./chunk-RCQ2HIQD.cjs');
 require('./chunk-IGJUBJBW.cjs');
 
@@ -10,87 +10,87 @@ require('./chunk-IGJUBJBW.cjs');
 
 Object.defineProperty(exports, "AuthManager", {
   enumerable: true,
-  get: function () { return chunkCZOX6237_cjs.AuthManager; }
+  get: function () { return chunkKBBTC4I5_cjs.AuthManager; }
 });
 Object.defineProperty(exports, "PermissionManager", {
   enumerable: true,
-  get: function () { return chunkCZOX6237_cjs.PermissionManager; }
+  get: function () { return chunkKBBTC4I5_cjs.PermissionManager; }
 });
 Object.defineProperty(exports, "bootstrapMiddleware", {
   enumerable: true,
-  get: function () { return chunkCZOX6237_cjs.bootstrapMiddleware; }
+  get: function () { return chunkKBBTC4I5_cjs.bootstrapMiddleware; }
 });
 Object.defineProperty(exports, "cacheHeaders", {
   enumerable: true,
-  get: function () { return chunkCZOX6237_cjs.cacheHeaders; }
+  get: function () { return chunkKBBTC4I5_cjs.cacheHeaders; }
 });
 Object.defineProperty(exports, "compressionMiddleware", {
   enumerable: true,
-  get: function () { return chunkCZOX6237_cjs.compressionMiddleware; }
+  get: function () { return chunkKBBTC4I5_cjs.compressionMiddleware; }
 });
 Object.defineProperty(exports, "detailedLoggingMiddleware", {
   enumerable: true,
-  get: function () { return chunkCZOX6237_cjs.detailedLoggingMiddleware; }
+  get: function () { return chunkKBBTC4I5_cjs.detailedLoggingMiddleware; }
 });
 Object.defineProperty(exports, "getActivePlugins", {
   enumerable: true,
-  get: function () { return chunkCZOX6237_cjs.getActivePlugins; }
+  get: function () { return chunkKBBTC4I5_cjs.getActivePlugins; }
 });
 Object.defineProperty(exports, "isPluginActive", {
   enumerable: true,
-  get: function () { return chunkCZOX6237_cjs.isPluginActive; }
+  get: function () { return chunkKBBTC4I5_cjs.isPluginActive; }
 });
 Object.defineProperty(exports, "logActivity", {
   enumerable: true,
-  get: function () { return chunkCZOX6237_cjs.logActivity; }
+  get: function () { return chunkKBBTC4I5_cjs.logActivity; }
 });
 Object.defineProperty(exports, "loggingMiddleware", {
   enumerable: true,
-  get: function () { return chunkCZOX6237_cjs.loggingMiddleware; }
+  get: function () { return chunkKBBTC4I5_cjs.loggingMiddleware; }
 });
 Object.defineProperty(exports, "metricsMiddleware", {
   enumerable: true,
-  get: function () { return chunkCZOX6237_cjs.metricsMiddleware; }
+  get: function () { return chunkKBBTC4I5_cjs.metricsMiddleware; }
 });
 Object.defineProperty(exports, "optionalAuth", {
   enumerable: true,
-  get: function () { return chunkCZOX6237_cjs.optionalAuth; }
+  get: function () { return chunkKBBTC4I5_cjs.optionalAuth; }
 });
 Object.defineProperty(exports, "performanceLoggingMiddleware", {
   enumerable: true,
-  get: function () { return chunkCZOX6237_cjs.performanceLoggingMiddleware; }
+  get: function () { return chunkKBBTC4I5_cjs.performanceLoggingMiddleware; }
 });
 Object.defineProperty(exports, "requireActivePlugin", {
   enumerable: true,
-  get: function () { return chunkCZOX6237_cjs.requireActivePlugin; }
+  get: function () { return chunkKBBTC4I5_cjs.requireActivePlugin; }
 });
 Object.defineProperty(exports, "requireActivePlugins", {
   enumerable: true,
-  get: function () { return chunkCZOX6237_cjs.requireActivePlugins; }
+  get: function () { return chunkKBBTC4I5_cjs.requireActivePlugins; }
 });
 Object.defineProperty(exports, "requireAnyPermission", {
   enumerable: true,
-  get: function () { return chunkCZOX6237_cjs.requireAnyPermission; }
+  get: function () { return chunkKBBTC4I5_cjs.requireAnyPermission; }
 });
 Object.defineProperty(exports, "requireAuth", {
   enumerable: true,
-  get: function () { return chunkCZOX6237_cjs.requireAuth; }
+  get: function () { return chunkKBBTC4I5_cjs.requireAuth; }
 });
 Object.defineProperty(exports, "requirePermission", {
   enumerable: true,
-  get: function () { return chunkCZOX6237_cjs.requirePermission; }
+  get: function () { return chunkKBBTC4I5_cjs.requirePermission; }
 });
 Object.defineProperty(exports, "requireRole", {
   enumerable: true,
-  get: function () { return chunkCZOX6237_cjs.requireRole; }
+  get: function () { return chunkKBBTC4I5_cjs.requireRole; }
 });
 Object.defineProperty(exports, "securityHeaders", {
   enumerable: true,
-  get: function () { return chunkCZOX6237_cjs.securityHeaders; }
+  get: function () { return chunkKBBTC4I5_cjs.securityHeaders; }
 });
 Object.defineProperty(exports, "securityLoggingMiddleware", {
   enumerable: true,
-  get: function () { return chunkCZOX6237_cjs.securityLoggingMiddleware; }
+  get: function () { return chunkKBBTC4I5_cjs.securityLoggingMiddleware; }
 });
 //# sourceMappingURL=middleware.cjs.map
 //# sourceMappingURL=middleware.cjs.map
