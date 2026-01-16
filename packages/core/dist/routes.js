@@ -1,8 +1,8 @@
-export { ROUTES_INFO, admin_api_default as adminApiRoutes, adminCheckboxRoutes, admin_code_examples_default as adminCodeExamplesRoutes, adminCollectionsRoutes, admin_content_default as adminContentRoutes, router as adminDashboardRoutes, adminDesignRoutes, adminLogsRoutes, adminMediaRoutes, adminPluginRoutes, adminSettingsRoutes, admin_testimonials_default as adminTestimonialsRoutes, userRoutes as adminUsersRoutes, api_content_crud_default as apiContentCrudRoutes, api_media_default as apiMediaRoutes, api_default as apiRoutes, api_system_default as apiSystemRoutes, auth_default as authRoutes, test_cleanup_default as testCleanupRoutes } from './chunk-C76W7R5Q.js';
+export { ROUTES_INFO, admin_api_default as adminApiRoutes, adminCheckboxRoutes, admin_code_examples_default as adminCodeExamplesRoutes, adminCollectionsRoutes, admin_content_default as adminContentRoutes, router as adminDashboardRoutes, adminDesignRoutes, adminLogsRoutes, adminMediaRoutes, adminPluginRoutes, adminSettingsRoutes, admin_testimonials_default as adminTestimonialsRoutes, userRoutes as adminUsersRoutes, api_content_crud_default as apiContentCrudRoutes, api_media_default as apiMediaRoutes, api_default as apiRoutes, api_system_default as apiSystemRoutes, auth_default as authRoutes, test_cleanup_default as testCleanupRoutes } from './chunk-NR5VNZ6E.js';
 import './chunk-3YNNVSMC.js';
-import './chunk-IH53DXEA.js';
+import './chunk-CKGWGNKO.js';
 import './chunk-SGAG6FD3.js';
-import './chunk-BJLU6N2H.js';
+import './chunk-7UXV7ZTX.js';
 import './chunk-GS6U5UR7.js';
 import './chunk-VNCYCH3H.js';
 import './chunk-X7ZAEI5S.js';

@@ -17,7 +17,7 @@
     "build:core": "npm run build --workspace=@sonicjs-cms/core",
     "deploy": "npm run deploy --workspace=my-sonicjs-app",
     "deploy:staging": "npm run build:core && cd my-sonicjs-app && npx wrangler deploy --env staging",
-    "deploy:www": "npm run deploy --workspace=www",
+    "deploy:www": "cd www && npm run build && npx wrangler pages deploy dist --project-name=infowall-www",
     "test": "npm run test --workspace=@sonicjs-cms/core",
     "test:cov": "npm run test:cov --workspace=@sonicjs-cms/core",
     "test:watch": "npm run test:watch --workspace=@sonicjs-cms/core",

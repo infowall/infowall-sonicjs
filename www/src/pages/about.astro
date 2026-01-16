@@ -1,0 +1,111 @@
+---
+import MainLayout from '../layouts/MainLayout.astro'
+---
+
+<MainLayout title="About - Infowall.net">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-4xl font-bold text-gray-900 mb-8">About Infowall</h1>
+    
+    <div class="prose prose-lg max-w-none">
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">What is this?</h2>
+        <p class="text-gray-700 mb-4">
+          Infowall.net is a developer blog and project showcase built with cutting-edge web technologies.
+          It serves as both a testing ground and production showcase for SonicJS CMS capabilities.
+        </p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Technology Stack</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Backend</h3>
+            <ul class="space-y-2 text-gray-700">
+              <li>• <strong>SonicJS v2.4.0</strong> - Headless CMS</li>
+              <li>• <strong>Cloudflare Workers</strong> - Edge runtime</li>
+              <li>• <strong>Cloudflare D1</strong> - SQLite database</li>
+              <li>• <strong>Cloudflare R2</strong> - Object storage</li>
+              <li>• <strong>Cloudflare KV</strong> - Caching layer</li>
+            </ul>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Frontend</h3>
+            <ul class="space-y-2 text-gray-700">
+              <li>• <strong>Astro</strong> - Static site generator</li>
+              <li>• <strong>TailwindCSS v4</strong> - Styling</li>
+              <li>• <strong>TypeScript</strong> - Type safety</li>
+              <li>• <strong>Cloudflare Pages</strong> - Hosting</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Architecture</h2>
+        <p class="text-gray-700 mb-4">
+          This project follows a <strong>monorepo</strong> architecture with separate backend (CMS) and frontend (website) applications:
+        </p>
+        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+          <pre class="text-sm"><code>infowall/
+├── packages/cms/    # SonicJS backend + API
+└── www/             # Astro frontend</code></pre>
+        </div>
+        <p class="text-gray-700 mt-4">
+          The backend provides a REST API and admin interface, while the frontend consumes the API
+          to generate static pages with optional server-side rendering.
+        </p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Why These Technologies?</h2>
+        <div class="space-y-4 text-gray-700">
+          <div>
+            <h3 class="font-semibold text-gray-900">SonicJS</h3>
+            <p>A modern, TypeScript-first headless CMS built specifically for Cloudflare Workers. It's fast, secure, and developer-friendly.</p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-900">Astro</h3>
+            <p>The best static site generator for content-driven sites. Ships minimal JavaScript, incredibly fast, and supports any UI framework.</p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-900">Cloudflare Platform</h3>
+            <p>Workers, D1, R2, and Pages provide a complete edge platform with global distribution, incredible performance, and generous free tier.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-12 bg-blue-50 p-8 rounded-lg border border-blue-200">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Open Source</h2>
+        <p class="text-gray-700 mb-4">
+          Both SonicJS and Astro are open source projects:
+        </p>
+        <div class="flex gap-4">
+          <a 
+            href="https://github.com/lane711/sonicjs" 
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block bg-gray-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition"
+          >
+            SonicJS on GitHub
+          </a>
+          <a 
+            href="https://github.com/withastro/astro" 
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block bg-gray-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition"
+          >
+            Astro on GitHub
+          </a>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Contact</h2>
+        <p class="text-gray-700">
+          For questions or feedback about this site, feel free to reach out through the 
+          <a href="https://sonicjs.com" class="text-blue-600 hover:text-blue-800">SonicJS community</a>.
+        </p>
+      </section>
+    </div>
+  </div>
+</MainLayout>

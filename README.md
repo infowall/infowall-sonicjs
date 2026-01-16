@@ -1,33 +1,61 @@
-# SonicJS
+# Infowall
 
-A modern, TypeScript-first headless CMS built for Cloudflare's edge platform with Hono.js.
+A developer blog and project showcase built with SonicJS CMS and Astro.
 
-**[sonicjs.com](https://sonicjs.com)**
+## 📦 Repository Structure
 
-## 📦 Get Started
+- `packages/core/` - SonicJS CMS core package
+- `my-sonicjs-app/` - Backend CMS instance (Cloudflare Workers)
+- `www/` - Frontend website (Astro, deployed to Cloudflare Pages)
+- `tests/` - E2E test suite
 
+## 🚀 Development
+
+### Start Backend CMS
 ```bash
-npx create-sonicjs@latest my-app
+npm run dev
+# Runs on http://localhost:8788
+# Admin: http://localhost:8788/admin
 ```
 
-[![Sponsor](https://img.shields.io/badge/Sponsor-%E2%9D%A4-pink?style=for-the-badge&logo=github-sponsors)](https://github.com/sponsors/lane711)
+### Start Frontend
+```bash
+npm run dev:www
+# Runs on http://localhost:4321
+```
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/lane711/sonicjs-deploy-now)
+## 🌐 Deployment
 
-> **⚠️ Note:** This repository is for **developing the SonicJS core package**. To build an application with SonicJS, use the command above to create a new project.
+- **Backend**: `npm run deploy:staging` → Cloudflare Workers
+- **Frontend**: `npm run deploy:www` → Cloudflare Pages
 
-## 🚀 Features
+## 🛠 Technology Stack
 
-### Core Platform
-- **⚡ Edge-First**: Built specifically for Cloudflare Workers with global performance
-- **🔧 Developer-Centric**: Configuration over UI, TypeScript-first approach
-- **🤖 AI-Friendly**: Structured codebase designed for AI-assisted development
-- **🔌 Plugin System**: Extensible architecture without core modifications
-- **📱 Modern Stack**: Hono.js, TypeScript, D1, R2, and HTMX
-- **🚀 Fast & Lightweight**: Optimized for edge computing performance
+### Backend (SonicJS CMS)
+- Hono.js - Edge-first web framework
+- TypeScript - Type safety
+- Cloudflare D1 - SQLite database
+- Cloudflare R2 - Object storage
+- Cloudflare KV - Key-value cache
 
-### Advanced Content Management (Stage 5)
-- **📝 Rich Text Editor**: TinyMCE integration with customizable toolbars
+### Frontend (Astro)
+- Astro - Static site generator
+- TailwindCSS - Utility-first CSS
+- TypeScript - Type safety
+
+## 📝 Content Management
+
+Content is managed through the SonicJS admin interface at `/admin`:
+- Blog posts
+- Projects
+- Media uploads
+- User management
+
+## 🔗 Links
+
+- **Live Site**: https://infowall.net (coming soon)
+- **Staging**: https://infowall-staging.workers.dev
+- **SonicJS**: https://sonicjs.com
 - **🎛️ Dynamic Fields**: Custom field types (text, number, date, boolean, select, media)
 - **📚 Content Versioning**: Complete revision history with restore functionality
 - **⏰ Content Scheduling**: Publish/unpublish automation with date controls

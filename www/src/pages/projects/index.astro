@@ -1,0 +1,34 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro'
+import ProjectCard from '../../components/ProjectCard.astro'
+import { getProjects } from '../../lib/api'
+
+const projects = await getProjects()
+---
+
+<MainLayout title="Projects - Infowall.net">
+  <div class="mb-8">
+    <h1 class="text-4xl font-bold text-gray-900 mb-4">Projects</h1>
+    <p class="text-xl text-gray-600">
+      {projects.length} {projects.length === 1 ? 'project' : 'projects'} showcased
+    </p>
+  </div>
+
+  {projects.length === 0 ? (
+    <div class="bg-white rounded-lg shadow-md p-12 text-center">
+      <p class="text-gray-600 text-lg mb-4">No projects yet!</p>
+      <p class="text-gray-500">
+        Create some content in the admin panel at{' '}
+        <a href="http://localhost:8787/admin" class="text-blue-600 hover:text-blue-800">
+          http://localhost:8787/admin
+        </a>
+      </p>
+    </div>
+  ) : (
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projects.map(project => (
+        <ProjectCard project={project} />
+      ))}
+    </div>
+  )}
+</MainLayout>

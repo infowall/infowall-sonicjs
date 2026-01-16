@@ -1,0 +1,72 @@
+---
+import type { Project } from '../lib/api'
+import { formatDate } from '../lib/api'
+
+interface Props {
+  project: Project
+}
+
+const { project } = Astro.props
+const publishDate = project.data.published_at || project.created_at
+---
+
+<div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+  {project.data.featured_image && (
+    <img 
+      src={project.data.featured_image} 
+      alt={project.data.title}
+      class="w-full h-48 object-cover"
+    />
+  )}
+  <div class="p-6">
+    <div class="flex items-center justify-between mb-2">
+      <h3 class="text-xl font-bold text-gray-900">
+        {project.data.title}
+      </h3>
+      {project.data.is_featured && (
+        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded font-semibold">
+          Featured
+        </span>
+      )}
+    </div>
+    
+    {project.data.description && (
+      <p class="text-gray-700 mb-4">
+        {project.data.description}
+      </p>
+    )}
+    
+    {project.data.tech_stack && (
+      <div class="flex flex-wrap gap-2 mb-4">
+        {project.data.tech_stack.split(',').map((tech: string) => (
+          <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">
+            {tech.trim()}
+          </span>
+        ))}
+      </div>
+    )}
+    
+    <div class="flex items-center gap-4 text-sm">
+      {project.data.project_url && (
+        <a 
+          href={project.data.project_url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-blue-600 hover:text-blue-800 font-semibold"
+        >
+          Live Demo →
+        </a>
+      )}
+      {project.data.github_url && (
+        <a 
+          href={project.data.github_url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-gray-600 hover:text-gray-800"
+        >
+          GitHub
+        </a>
+      )}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+---
+import type { Article } from '../lib/api'
+import { formatDate, getExcerpt } from '../lib/api'
+
+interface Props {
+  article: Article
+}
+
+const { article } = Astro.props
+const excerpt = article.data.excerpt || getExcerpt(article.data.content)
+const publishDate = article.data.published_at || article.created_at
+---
+
+<article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+  {article.data.featured_image && (
+    <img 
+      src={article.data.featured_image} 
+      alt={article.data.title}
+      class="w-full h-48 object-cover"
+    />
+  )}
+  <div class="p-6">
+    <h2 class="text-2xl font-bold text-gray-900 mb-2">
+      <a href={`/articles/${article.data.slug}`} class="hover:text-blue-600 transition">
+        {article.data.title}
+      </a>
+    </h2>
+    <div class="text-sm text-gray-500 mb-4">
+      <span>By {article.data.author}</span>
+      <span class="mx-2">•</span>
+      <time datetime={publishDate}>{formatDate(publishDate)}</time>
+    </div>
+    {excerpt && (
+      <p class="text-gray-700 mb-4 line-clamp-3">
+        {excerpt}
+      </p>
+    )}
+    {article.data.tags && (
+      <div class="flex flex-wrap gap-2 mb-4">
+        {article.data.tags.split(',').map((tag: string) => (
+          <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">
+            {tag.trim()}
+          </span>
+        ))}
+      </div>
+    )}
+    <a 
+      href={`/articles/${article.data.slug}`}
+      class="inline-block text-blue-600 hover:text-blue-800 font-semibold"
+    >
+      Read more →
+    </a>
+  </div>
+</article>

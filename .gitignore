@@ -92,3 +92,10 @@ my-sonicjs-app/.wrangler/
 PROJECT_STATE_*.md
 DEVELOPMENT_MIGRATION_COMPLETE.md
 STAGING_SETUP_COMPLETE.md
+
+# Astro
+www/dist/
+www/.astro/
+www/.env
+www/.env.production
+

@@ -1,0 +1,94 @@
+---
+import MainLayout from '../layouts/MainLayout.astro'
+import ArticleCard from '../components/ArticleCard.astro'
+import ProjectCard from '../components/ProjectCard.astro'
+import { getArticles, getFeaturedProjects } from '../lib/api'
+
+const articles = await getArticles()
+const latestArticles = articles.slice(0, 6)
+const featuredProjects = await getFeaturedProjects()
+---
+
+<MainLayout>
+  <!-- Hero Section -->
+  <section class="text-center mb-16">
+    <h1 class="text-5xl font-bold text-gray-900 mb-4">
+      Welcome to Infowall
+    </h1>
+    <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+      A developer blog and project showcase built with SonicJS CMS and Astro. 
+      Fast, modern, and deployed on the edge with Cloudflare.
+    </p>
+  </section>
+
+  <!-- Featured Projects -->
+  {featuredProjects.length > 0 && (
+    <section class="mb-16">
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="text-3xl font-bold text-gray-900">Featured Projects</h2>
+        <a href="/projects" class="text-blue-600 hover:text-blue-800 font-semibold">
+          View all →
+        </a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {featuredProjects.map(project => (
+          <ProjectCard project={project} />
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- Latest Articles -->
+  <section>
+    <div class="flex items-center justify-between mb-8">
+      <h2 class="text-3xl font-bold text-gray-900">Latest Articles</h2>
+      <a href="/articles" class="text-blue-600 hover:text-blue-800 font-semibold">
+        View all →
+      </a>
+    </div>
+    
+    {latestArticles.length === 0 ? (
+      <div class="bg-white rounded-lg shadow-md p-12 text-center">
+        <p class="text-gray-600 text-lg mb-4">No articles yet!</p>
+        <p class="text-gray-500">
+          Create some content in the admin panel at{' '}
+          <a href="http://localhost:8787/admin" class="text-blue-600 hover:text-blue-800">
+            http://localhost:8787/admin
+          </a>
+        </p>
+      </div>
+    ) : (
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {latestArticles.map(article => (
+          <ArticleCard article={article} />
+        ))}
+      </div>
+    )}
+  </section>
+
+  <!-- Call to Action -->
+  <section class="mt-16 bg-blue-600 text-white rounded-lg p-12 text-center">
+    <h2 class="text-3xl font-bold mb-4">Built with SonicJS & Astro</h2>
+    <p class="text-xl mb-6 opacity-90">
+      A modern headless CMS on Cloudflare Workers, paired with Astro's lightning-fast static site generation.
+    </p>
+    <div class="flex gap-4 justify-center">
+      <a 
+        href="https://sonicjs.com" 
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition"
+      >
+        Learn about SonicJS
+      </a>
+      <a 
+        href="https://astro.build" 
+        target="_blank"
+        rel="noopener noreferrer"
+        class="border-2 border-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition"
+      >
+        Learn about Astro
+      </a>
+    </div>
+  </section>
+</MainLayout>
