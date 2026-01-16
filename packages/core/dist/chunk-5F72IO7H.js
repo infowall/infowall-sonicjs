@@ -1,5 +1,3 @@
-'use strict';
-
 // src/db/migrations-bundle.ts
 var bundledMigrations = [
   {
@@ -1488,6 +1486,13 @@ SET schema = REPLACE(
 )
 WHERE id = 'news-collection' AND schema LIKE '%"slug":{"type":"string"%';
 `
+  },
+  {
+    id: "029",
+    name: "Fix Slug Field Options",
+    filename: "029_fix_slug_field_options.sql",
+    description: "Migration 029: Fix Slug Field Options",
+    sql: "-- Migration: Fix slug field options\n-- Description: Update slug fields to include proper field_options JSON with type and format\n-- Created: 2026-01-16\n\n-- Update pages collection slug field to include field_options\nUPDATE content_fields \nSET field_type = 'slug',\n    field_options = json_set(\n      COALESCE(field_options, '{}'),\n      '$.type', 'slug',\n      '$.format', 'slug'\n    )\nWHERE field_name = 'slug' \n  AND collection_id = 'pages-collection'\n  AND (field_type = 'text' OR field_type = 'slug');\n\n-- Update blog posts slug field if it exists\nUPDATE content_fields \nSET field_type = 'slug',\n    field_options = json_set(\n      COALESCE(field_options, '{}'),\n      '$.type', 'slug',\n      '$.format', 'slug'\n    )\nWHERE field_name = 'slug' \n  AND collection_id = 'blog-posts-collection'\n  AND (field_type = 'text' OR field_type = 'slug');\n\n-- Update news slug field if it exists\nUPDATE content_fields \nSET field_type = 'slug',\n    field_options = json_set(\n      COALESCE(field_options, '{}'),\n      '$.type', 'slug',\n      '$.format', 'slug'\n    )\nWHERE field_name = 'slug' \n  AND collection_id = 'news-collection'\n  AND (field_type = 'text' OR field_type = 'slug');\n\n-- Also add format to schema-based slug fields\nUPDATE collections \nSET schema = json_set(\n  schema,\n  '$.properties.slug.format', 'slug'\n)\nWHERE (id = 'pages-collection' \n   OR id = 'blog-posts-collection' \n   OR id = 'news-collection')\n  AND json_extract(schema, '$.properties.slug.type') = 'slug'\n  AND json_extract(schema, '$.properties.slug.format') IS NULL;\n"
   }
 ];
 var migrationsByIdMap = new Map(
@@ -1895,6 +1900,6 @@ var MigrationService = class {
   }
 };
 
-exports.MigrationService = MigrationService;
-//# sourceMappingURL=chunk-NFDCOQTI.cjs.map
-//# sourceMappingURL=chunk-NFDCOQTI.cjs.map
+export { MigrationService };
+//# sourceMappingURL=chunk-5F72IO7H.js.map
+//# sourceMappingURL=chunk-5F72IO7H.js.map
